@@ -1,0 +1,8 @@
+.title-case {
+  text-transform: capitalize;
+}
+
+.icon img {
+  width: 150px;
+  height: auto;
+}
