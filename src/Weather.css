@@ -1,8 +1,22 @@
-.title-case {
+:root {
+  --branding-color: #f4f4f4;
+  --primary-color: #f6f3ef;
+}
+
+.Weather .title-case {
   text-transform: capitalize;
 }
 
-.icon img {
+.Weather .icon img {
   width: 150px;
   height: auto;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-style: none;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
+  color: #134056;
+  margin: 0 auto;
+  width: 80%;
 }

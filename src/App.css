@@ -1,8 +1,18 @@
+:root {
+  --branding-color: #f4f4f4;
+  --primary-color: #f6f3ef;
+}
+
 .App {
   font-family: sans-serif;
+}
+
+body {
+  background: var(--primary-color);
 }
 
 .App .container h1 {
   font-size: 36px;
   text-decoration: bolder;
+  text-align: center;
 }

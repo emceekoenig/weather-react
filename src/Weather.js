@@ -34,25 +34,39 @@ export default function WeatherSearch() {
   }
 
   let form = (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="search"
-        placeholder="Enter a city..."
-        className="query"
-        onChange={updateCity}
-      />
-      <button type="submit" className="submit">
-        Search
-      </button>
-    </form>
+    <div className="card">
+      <div className="card-body">
+        <div className="row">
+          <form onSubmit={handleSubmit} className="search-form">
+            <input
+              type="search"
+              placeholder="Enter a city..."
+              className="query form-control shadow-lg border-0"
+              autoFocus="on"
+              onChange={updateCity}
+            />
+            <button
+              type="submit"
+              className="submit form-control btn btn-light shadow-sm"
+            >
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
   );
 
   if (loaded) {
     return (
-      <div className="container">
-        <div className="row">{form}</div>
+      <div className="card">
+        <div className="card-body">
+          <div className="row">
+            <div className="col m-3 p-2">{form}</div>
+          </div>
+        </div>
 
-        <div className="row mt-4">
+        <div className="row m-3">
           <div className="col">
             <h1 className="title-case">{city}</h1>
             <ul>
