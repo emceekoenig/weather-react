@@ -12,6 +12,11 @@
   height: auto;
 }
 
+.container {
+  width: 100%;
+  border-style: none;
+}
+
 .card {
   background-color: rgba(255, 255, 255, 0.8);
   border-style: none;
@@ -19,4 +24,20 @@
   color: #134056;
   margin: 0 auto;
   width: 80%;
+}
+
+.grid-1 {
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.box {
+  font-size: 13px;
 }

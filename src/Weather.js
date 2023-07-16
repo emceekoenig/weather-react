@@ -34,51 +34,63 @@ export default function WeatherSearch() {
   }
 
   let form = (
-    <div className="card">
-      <div className="card-body">
-        <div className="row">
-          <form onSubmit={handleSubmit} className="search-form">
-            <input
-              type="search"
-              placeholder="Enter a city..."
-              className="query form-control shadow-lg border-0"
-              autoFocus="on"
-              onChange={updateCity}
-            />
-            <button
-              type="submit"
-              className="submit form-control btn btn-light shadow-sm"
-            >
-              Search
-            </button>
-          </form>
-        </div>
+    <div className="container">
+      <div className="row">
+        <form onSubmit={handleSubmit} className="search-form">
+          <div className="grid-1">
+            <div className="box">
+              <input
+                type="search"
+                placeholder="Enter a city..."
+                className="query form-control shadow-lg border-0 box"
+                autoFocus="on"
+                onChange={updateCity}
+              />
+            </div>
+            <div className="box">
+              <button
+                type="submit"
+                className="submit form-control btn btn-light shadow-sm border-0 box"
+              >
+                Search
+              </button>
+            </div>
+
+            <div className="box">
+              <img
+                src="imgs/location-arrow-solid.svg"
+                alt="Current Location"
+                title="Current Location"
+              ></img>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   );
 
   if (loaded) {
     return (
-      <div className="card">
-        <div className="card-body">
-          <div className="row">
-            <div className="col m-3 p-2">{form}</div>
-          </div>
-        </div>
+      <div className="container">
+        <div className="row">
+          <div className="col m-3 p-2">{form}</div>
 
-        <div className="row m-3">
-          <div className="col">
-            <h1 className="title-case">{city}</h1>
-            <ul>
-              <li>Temperature: {Math.round(weather.temperature)}°F</li>
-              <li className="title-case">Description: {weather.description}</li>
-              <li>Humidity: {weather.humidity}%</li>
-              <li>Wind: {Math.round(weather.wind / 1.609)} mph</li>
-            </ul>
-          </div>
+          <div className="row m-3 p-2 grid">
+            <div className="col box">
+              <h1 className="title-case">{city}</h1>
+              <ul>
+                <li>Temperature: {Math.round(weather.temperature)}°F</li>
+                <li className="title-case">
+                  Description: {weather.description}
+                </li>
+                <li>Humidity: {weather.humidity}%</li>
+                <li>Wind: {Math.round(weather.wind / 1.609)} mph</li>
+              </ul>
+            </div>
 
-          <div className="col my-auto icon">
-            <img src={weather.icon} alt="Weather Icon" />
+            <div className="col my-auto icon box">
+              <img src={weather.icon} alt="Weather Icon" />
+            </div>
           </div>
         </div>
       </div>

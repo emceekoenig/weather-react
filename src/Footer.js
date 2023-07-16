@@ -3,7 +3,7 @@ import "./Footer.css";
 
 export default function Footer() {
   return (
-    <div className="Footer mt-5">
+    <div className="Footer mt-4">
       <p>
         <a href="https://github.com/emceekoenig/weather-react">
           Open-source code
