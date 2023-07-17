@@ -7,9 +7,18 @@
   text-transform: capitalize;
 }
 
-.Weather .icon img {
-  width: 150px;
-  height: auto;
+.icon img {
+  width: 64px;
+  height: 64px;
+}
+
+.units {
+  color: black;
+  font-size: 12px;
+  text-decoration: none;
+  position: relative;
+  top: -15px;
+  margin-left: 3px;
 }
 
 .container {
@@ -18,26 +27,172 @@
 }
 
 .card {
+  display: flex;
+  justify-content: center;
   background-color: rgba(255, 255, 255, 0.8);
   border-style: none;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
   color: #134056;
   margin: 0 auto;
-  width: 80%;
+  width: 450px;
 }
 
-.grid-1 {
+.grid-search {
   display: grid;
   grid-template-columns: 4fr 1fr 1fr;
   grid-gap: 10px;
 }
 
-.grid-2 {
+.grid-daily-weather {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 4fr 1fr 4fr;
+  grid-gap: 10px;
+}
+
+.grid-forecast {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
 }
 
 .box {
+  color: black;
+  display: flex;
   font-size: 13px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-daily-weather .box {
+  padding: 25px 0;
+}
+
+.arrow {
+  width: 20px;
+  height: 100%;
+  opacity: 0.7;
+}
+
+.arrow:hover {
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+.vr {
+  color: #134056;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  height: 120px;
+  width: 2px;
+}
+
+.temp-descript {
+  padding-right: 20px;
+  margin: 30px 0;
+}
+
+.temp-descript ul {
+  list-style: none;
+  padding-right: 0;
+}
+
+.temp-descript p {
+  font-size: 12px;
+}
+
+.divider {
+  padding: 0;
+}
+
+.city-descript {
+  padding-left: 0;
+  padding-right: 40px;
+  margin: 30px 0;
+}
+
+.city-descript ul {
+  list-style: none;
+}
+
+.city-descript p {
+  font-size: 12px;
+}
+
+.forecast-icon .box {
+  font-size: 30px;
+}
+
+.hi-lo .box {
+  font-size: 10px;
+}
+
+@media (max-width: 576px) {
+  .card {
+    width: 90%;
+    height: 350px;
+  }
+
+  .weather-header {
+    display: none;
+  }
+
+  .degrees {
+    position: absolute;
+  }
+
+  .temp-descript,
+  .divider,
+  .city-descript {
+    margin: 0;
+  }
+
+  .vr {
+    height: 90px;
+    position: relative;
+    top: -20px;
+  }
+
+  .temp,
+  .description {
+    padding: 0;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  h1 {
+    font-size: 50px;
+  }
+
+  .grid-forecast {
+    grid-template-columns: 1fr;
+  }
+
+  .forecast-day {
+    position: absolute;
+    top: 200px;
+    left: -70px;
+  }
+
+  .forecast-icon {
+    position: absolute;
+    top: 200px;
+    right: 0px;
+  }
+
+  .forecast-icon .box {
+    font-size: 13px;
+  }
+
+  .forecast-temp {
+    position: absolute;
+    top: 200px;
+    right: -80px;
+  }
+
+  .hi-lo .box {
+    font-size: 13px;
+  }
 }

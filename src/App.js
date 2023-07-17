@@ -6,11 +6,7 @@ import Footer from "./Footer";
 function App() {
   return (
     <div className="container">
-      <header className="App-header">
-        <h1 className="mt-4 mb-4 text-center">Weather App</h1>
-      </header>
-
-      <div className="card">
+      <div className="card mt-5">
         <div className="card-body">
           <Weather city="Austin" />
         </div>

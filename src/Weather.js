@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Weather.css";
+import arrow from "./imgs/arrow.svg";
 
 export default function WeatherSearch() {
   const [city, setCity] = useState("");
@@ -37,7 +38,7 @@ export default function WeatherSearch() {
     <div className="container">
       <div className="row">
         <form onSubmit={handleSubmit} className="search-form">
-          <div className="grid-1">
+          <div className="grid-search">
             <div className="box">
               <input
                 type="search"
@@ -56,15 +57,99 @@ export default function WeatherSearch() {
               </button>
             </div>
 
-            <div className="box">
+            <div className="box my-auto">
               <img
-                src="imgs/location-arrow-solid.svg"
+                src={arrow}
                 alt="Current Location"
                 title="Current Location"
-              ></img>
+                className="arrow"
+              />
             </div>
           </div>
         </form>
+      </div>
+    </div>
+  );
+
+  let forecast = (
+    <div className="container text-end">
+      <div className="row mt-4 justify-content-center weather-header">
+        <div className="col-5 temp-descript">
+          <div className="row">
+            <h1 className="d-flex justify-content-end temp">☀️ 84°F</h1>
+          </div>
+
+          <div className="row">
+            <p className="d-flex justify-content-end description">
+              <ul>
+                <li>Humidity: 89%</li>
+                <li>Wind: 12 mph</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+
+        <div className="col-2 box divider">
+          <div className="vr"></div>
+        </div>
+
+        <div className="col-5 city-descript">
+          <h1>Austin</h1>
+          <p>
+            <ul>
+              <li className="d-none d-sm-block">as of Sun 8:15 PM</li>
+              <li>Clear</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+
+      <div className="container mobile-display d-block d-sm-none text-center">
+        <p className="mt-4 mb-0">Austin</p>
+        <h1 className="mb-0">
+          84<span className="degrees">°</span>
+        </h1>
+        <p>Clear</p>
+      </div>
+
+      <div className="row mb-0">
+        <div className="grid-forecast forecast-day">
+          <div className="col box">Sun</div>
+          <div className="col box">Mon</div>
+          <div className="col box">Tues</div>
+          <div className="col box">Wed</div>
+          <div className="col box">Thurs</div>
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="grid-forecast forecast-icon">
+          <div className="col box">☀️</div>
+          <div className="col box">☀️</div>
+          <div className="col box">☀️</div>
+          <div className="col box">⛈️</div>
+          <div className="col box">🌦️</div>
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="grid-forecast forecast-temp mb-3 hi-lo">
+          <div className="col box">
+            <span className="fw-bold">105°</span>/80°
+          </div>
+          <div className="col box">
+            <span className="fw-bold">105°</span>/80°
+          </div>
+          <div className="col box">
+            <span className="fw-bold">105°</span>/80°
+          </div>
+          <div className="col box">
+            <span className="fw-bold">105°</span>/80°
+          </div>
+          <div className="col box">
+            <span className="fw-bold">105°</span>/80°
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -75,27 +160,44 @@ export default function WeatherSearch() {
         <div className="row">
           <div className="col m-3 p-2">{form}</div>
 
-          <div className="row m-3 p-2 grid">
-            <div className="col box">
-              <h1 className="title-case">{city}</h1>
-              <ul>
-                <li>Temperature: {Math.round(weather.temperature)}°F</li>
-                <li className="title-case">
-                  Description: {weather.description}
-                </li>
-                <li>Humidity: {weather.humidity}%</li>
-                <li>Wind: {Math.round(weather.wind / 1.609)} mph</li>
-              </ul>
+          <div className="row m-3 p-2 grid-daily-weather">
+            <div className="row">
+              <div className="col box">
+                <div className="icon">
+                  <img src={weather.icon} alt="Weather Icon" />
+                </div>
+
+                <div className="temp d-flex">
+                  <h1>
+                    {Math.round(weather.temperature)}
+                    <span className="units">°F</span>
+                  </h1>
+                </div>
+              </div>
+
+              <div className="row">
+                <div className="col box">
+                  <ul>
+                    <li>Humidity: {weather.humidity}%</li>
+                    <li>Wind: {Math.round(weather.wind / 1.609)} mph</li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
-            <div className="col my-auto icon box">
-              <img src={weather.icon} alt="Weather Icon" />
+            <div className="split-line col box">
+              <div className="vr"></div>
+            </div>
+
+            <div className="col box">
+              <h1 className="title-case">{city}</h1>
+              <li className="title-case">Description: {weather.description}</li>
             </div>
           </div>
         </div>
       </div>
     );
   } else {
-    return form;
+    return [form, forecast];
   }
 }
