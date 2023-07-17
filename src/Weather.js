@@ -57,7 +57,7 @@ export default function WeatherSearch() {
               </button>
             </div>
 
-            <div className="box my-auto">
+            <div className="box my-auto current-location">
               <img
                 src={arrow}
                 alt="Current Location"
@@ -94,13 +94,20 @@ export default function WeatherSearch() {
         </div>
 
         <div className="col-5 city-descript">
-          <h1>Austin</h1>
-          <p>
-            <ul>
-              <li className="d-none d-sm-block">as of Sun 8:15 PM</li>
-              <li>Clear</li>
-            </ul>
-          </p>
+          <div className="row">
+            <h1 className="d-flex justify-content-end">Austin</h1>
+          </div>
+
+          <div className="row">
+            <p className="d-flex justify-content-center">
+              <ul>
+                <li className="d-none d-sm-block text-nowrap">
+                  as of Mon 8:15 AM
+                </li>
+                <li>Clear</li>
+              </ul>
+            </p>
+          </div>
         </div>
       </div>
 
@@ -114,11 +121,11 @@ export default function WeatherSearch() {
 
       <div className="row mb-0">
         <div className="grid-forecast forecast-day">
-          <div className="col box">Sun</div>
           <div className="col box">Mon</div>
           <div className="col box">Tues</div>
           <div className="col box">Wed</div>
           <div className="col box">Thurs</div>
+          <div className="col box">Fri</div>
         </div>
       </div>
 
@@ -157,41 +164,58 @@ export default function WeatherSearch() {
   if (loaded) {
     return (
       <div className="container">
-        <div className="row">
-          <div className="col m-3 p-2">{form}</div>
+        <div className="row">{form}</div>
 
-          <div className="row m-3 p-2 grid-daily-weather">
-            <div className="row">
-              <div className="col box">
-                <div className="icon">
-                  <img src={weather.icon} alt="Weather Icon" />
-                </div>
-
-                <div className="temp d-flex">
-                  <h1>
-                    {Math.round(weather.temperature)}
-                    <span className="units">°F</span>
+        <div className="container text-end">
+          <div className="row mt-4 justify-content-center">
+            <div className="col-5 temp-descript">
+              <div className="row">
+                <div className="col">
+                  <h1 className="d-flex justify-content-end temp">
+                    <img
+                      src={weather.icon}
+                      alt="Weather Icon"
+                      className="float-left weather-icon"
+                    />
+                    <span className="temperature-today">
+                      {Math.round(weather.temperature)}°F
+                    </span>
                   </h1>
                 </div>
               </div>
 
               <div className="row">
-                <div className="col box">
+                <p className="d-flex justify-content-end description">
                   <ul>
                     <li>Humidity: {weather.humidity}%</li>
                     <li>Wind: {Math.round(weather.wind / 1.609)} mph</li>
                   </ul>
-                </div>
+                </p>
               </div>
             </div>
 
-            <div className="split-line col box">
+            <div className="col-2 box divider">
               <div className="vr"></div>
             </div>
 
-            <div className="col box">
-              <h1 className="title-case">{city}</h1>
-              <li className="title-case">Description: {weather.description}</li>
+            <div className="col-5 city-descript">
+              <div className="row">
+                <div className="col">
+                  <h1 className="title-case d-flex justify-content-center">
+                    {city}
+                  </h1>
+                </div>
+              </div>
+
+              <div className="row">
+                <p className="d-flex justify-content-center">
+                  <ul>
+                    <li className="title-case d-none d-sm-block text-nowrap">
+                      {weather.description}
+                    </li>
+                  </ul>
+                </p>
+              </div>
             </div>
           </div>
         </div>

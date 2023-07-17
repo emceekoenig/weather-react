@@ -3,13 +3,8 @@
   --primary-color: #f6f3ef;
 }
 
-.Weather .title-case {
+.title-case {
   text-transform: capitalize;
-}
-
-.icon img {
-  width: 64px;
-  height: 64px;
 }
 
 .units {
@@ -39,14 +34,14 @@
 
 .grid-search {
   display: grid;
-  grid-template-columns: 4fr 1fr 1fr;
+  grid-template-columns: 6fr 1fr 1fr;
   grid-gap: 10px;
 }
 
 .grid-daily-weather {
   display: grid;
   grid-template-columns: 4fr 1fr 4fr;
-  grid-gap: 10px;
+  grid-gap: 5px;
 }
 
 .grid-forecast {
@@ -69,14 +64,26 @@
 }
 
 .arrow {
-  width: 20px;
+  width: 15px;
   height: 100%;
   opacity: 0.7;
+}
+
+.current-location {
+  padding-left: 0;
+  margin-left: 0;
+  width: 15px;
+  height: 17px;
 }
 
 .arrow:hover {
   opacity: 0.4;
   cursor: pointer;
+}
+
+.weather-icon {
+  height: 64px;
+  width: 64px;
 }
 
 .vr {
@@ -113,6 +120,7 @@
 
 .city-descript ul {
   list-style: none;
+  padding-right: 0;
 }
 
 .city-descript p {
@@ -135,6 +143,21 @@
 
   .weather-header {
     display: none;
+  }
+
+  .grid-search {
+    grid-gap: 5px;
+  }
+
+  .grid-search .box {
+    font-size: 8px;
+  }
+
+  .current-location {
+    padding-left: 0;
+    margin-left: 0;
+    width: 12px;
+    height: 14px;
   }
 
   .degrees {
@@ -173,7 +196,11 @@
   .forecast-day {
     position: absolute;
     top: 200px;
-    left: -70px;
+    left: -50px;
+  }
+
+  .forecast-day .box {
+    text-align: right;
   }
 
   .forecast-icon {
@@ -189,7 +216,7 @@
   .forecast-temp {
     position: absolute;
     top: 200px;
-    right: -80px;
+    right: -50px;
   }
 
   .hi-lo .box {
